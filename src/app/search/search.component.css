@@ -1,0 +1,8 @@
+p {
+    color:White;
+    font-size:20px;
+}
+.title-center {
+    flex: 1 1 auto;
+    layout-align: center;
+}
