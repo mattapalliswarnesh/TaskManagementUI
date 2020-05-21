@@ -1,24 +1,51 @@
+<html>
+<body style="background:#ccccff;">
+    <div class="title-center">
+      <mat-toolbar color="primary" class="fixed-header">
+           <mat-toolbar-row>
+                <span class="title-center">Task Management System</span>
+                <button mat-icon-button>
+                     <mat-icon>account_circle</mat-icon>
+                </button>
+           </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-menu x-position="before" #menu="matMenu">
+           <button mat-menu-item>Profile</button>
+           <button mat-menu-item>Logout</button>   
+        </mat-menu>
+        
+    </div>
+    <div class="transbox">
+               <div class="inl">    
+                    <mat-form-field appearance="fill">
+                         <mat-label>Priority</mat-label>
+                              <mat-select>
+                                    <mat-option value="option">Personal</mat-option>
+                                    <mat-option value="option">Work</mat-option>
+                                    <mat-option value="option">Shopping</mat-option>
+                                    <mat-option value="option">Others</mat-option>
+                         </mat-select>
+                    </mat-form-field>   
+                    <mat-form-field appearance="fill">
+                         <mat-label>Status</mat-label>
+                              <mat-select>
+                                    <mat-option value="option">New</mat-option>
+                                    <mat-option value="option">In-Progress</mat-option>
+                                    <mat-option value="option">Completed</mat-option>
+                         </mat-select>
+                    </mat-form-field> 
+                    <mat-form-field>
+                         <mat-label>Choose a date</mat-label>
+                         <input matInput [matDatepicker]="picker">
+                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                         <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field> 
+                    <div class="button1"> 
+                        <button mat-raised-button color="primary">Search</button> 
+                    </div>      
+               </div>
+     </div>
+</body>
+</html>
 
-<mat-toolbar color="primary" class="fixed-header">
-<mat-toolbar-row>
-<span class="title-center">Task management System</span>
-<button mat-icon-button>
-      <mat-icon>home</mat-icon>
-</button>
-</mat-toolbar-row>
-</mat-toolbar>
-<mat-menu x-position="before" #menu="matMenu">
-    <button mat-menu-item>Profile</button>
-    <button mat-menu-item>Logout</button>
-</mat-menu>
- <div>
-    <h3 style="text-align: center;">Icons</h3>
-    <mat-card style="display: flex; justify-content: space-around;">
-      <mat-icon>home</mat-icon>
-      <mat-icon>dashboard</mat-icon>
-      <mat-icon>settings_applications</mat-icon>
-      <mat-icon>account_circle</mat-icon>
-      <mat-icon>notifications</mat-icon>
-      <mat-icon>refresh</mat-icon>
-    </mat-card>
-</div>
+
