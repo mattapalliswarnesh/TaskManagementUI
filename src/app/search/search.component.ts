@@ -8,8 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
 public courseName:string = "Angular First application";
   constructor(
-    
-    
   ) { }
 
   ngOnInit(): void {
