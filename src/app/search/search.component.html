@@ -1,5 +1,6 @@
 <html>
 <body style="background:#ccccff;">
+    <div class="upper">
     <div class="title-center">
       <mat-toolbar color="primary" class="fixed-header">
            <mat-toolbar-row>
@@ -13,8 +14,9 @@
            <button mat-menu-item>Profile</button>
            <button mat-menu-item>Logout</button>   
         </mat-menu>
-        
-    </div>
+     </div>
+     </div>
+     <div class="middle">
     <div class="transbox">
                <div class="inl">    
                     <mat-form-field appearance="fill">
@@ -45,6 +47,43 @@
                     </div>      
                </div>
      </div>
+     </div>
+     <mat-divider class="mat-divider">
+     </mat-divider>
+     <div class="lower">
+          <mat-card style=" height:2%;padding-bottom:2.5%;text-align:center;background-color:cyan">
+               <h2>List Of Tasks</h2>
+          </mat-card>
+          <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+               <!-- Position Column -->
+               <ng-container matColumnDef="taskname">
+                    <mat-header-cell *matHeaderCellDef> Task Description</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.taskname}} </mat-cell>
+               </ng-container>
+
+               <!-- Name Column -->
+               <ng-container matColumnDef="type">
+                    <mat-header-cell *matHeaderCellDef> Type of task </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+               </ng-container>
+
+               <!-- Weight Column -->
+               <ng-container matColumnDef="date1">
+                    <mat-header-cell *matHeaderCellDef> Date of Creation </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.date1}} </mat-cell>
+               </ng-container>
+
+               <!-- Symbol Column -->
+               <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef> Status Of Task </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+               </ng-container>
+
+               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+               <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+     </div>
+     
 </body>
 </html>
 
