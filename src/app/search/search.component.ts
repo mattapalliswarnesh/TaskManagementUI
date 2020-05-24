@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Tasks } from './tasks';
-import { HeroService } from './hero.service';
+import { tassks } from './tasks';
+import { HeroService } from '../hero.service';
 
 export interface PeriodicElement {
   taskname: string;
@@ -27,14 +27,34 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class SearchComponent implements OnInit {
   displayedColumns: string[] = ['taskname', 'type', 'date1', 'status'];
   dataSource = ELEMENT_DATA;
-  Task: any;
+  tasks: tassks[];
   errorMessage: string;
-  constructor(private bookService: HeroService) { }
+
+  /*newTask: tassks = { '_id': 11, 'description': 'something' };*/ 
+
+  constructor(private heroService: HeroService) { }
+
   getTask() {
-      this.HeroService.getTask().subscribe(
-      Task => this.Task = Task,
+      this.heroService.getTask().subscribe(
+      tasks => this.tasks = tasks,
       error => this.errorMessage = <any>error);
   }
+
+  addTask(id, description) {
+      this.heroService.addTask({ '_id': id, 'description': description })
+      .subscribe(hero => this.tasks.push(hero));
+  }
+
+  updateBook(id, description) {
+    this.bookService.updateTask({ '_id': id, 'description': description })
+      .subscribe(hero => this.tasks = hero);
+  }
+
+  deleteBook(_id: number) {
+    this.bookService.deleteTask(_id)
+      .subscribe(hero => this.tasks = hero);
+  }
+
   ngOnInit(): void {
     this.getTask();
   }
