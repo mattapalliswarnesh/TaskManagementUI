@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Tasks } from './tasks';
+import { HeroService } from './hero.service';
 
 export interface PeriodicElement {
   taskname: string;
@@ -25,10 +27,17 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class SearchComponent implements OnInit {
   displayedColumns: string[] = ['taskname', 'type', 'date1', 'status'];
   dataSource = ELEMENT_DATA;
-  constructor(
-  ) { }
-
+  Task: any;
+  errorMessage: string;
+  constructor(private bookService: HeroService) { }
+  getTask() {
+      this.HeroService.getTask().subscribe(
+      Task => this.Task = Task,
+      error => this.errorMessage = <any>error);
+  }
   ngOnInit(): void {
+    this.getTask();
   }
 
 }
+
