@@ -54,7 +54,7 @@
      <mat-divider class="mat-divider">
      </mat-divider>
      <div class="lower">
-          <mat-card style=" height:2%;padding-bottom:2.5%;text-align:center;background-color:cyan">
+          <mat-card style=" height:1.5%;padding-bottom:2.5%;padding-left:10%;padding-right:10%;text-align:center;background-color:#cce6ff">
                <h2>List Of Tasks</h2>
           </mat-card>
           <mat-card style="padding-left:10%;padding-right:10%;top; justify-content: space-around;">
@@ -62,44 +62,44 @@
           <table mat-table [dataSource]="dataSource">
                <!-- Position Column -->
                <ng-container matColumnDef="taskname">
-                    <th mat-header-cell *matHeaderCellDef> Task Description</th>
-                    <td mat-cell *matCellDef="let element"> {{element.taskname}} </td>
+                    <mat-header-cell *matHeaderCellDef> Task Description</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.taskname}} </mat-cell>
                </ng-container>
 
                <!-- Name Column -->
                <ng-container matColumnDef="type">
-                    <th mat-header-cell *matHeaderCellDef> Type of task </th>
-                    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                    <mat-header-cell *matHeaderCellDef> Type of task </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
                </ng-container>
 
                <!-- Weight Column -->
                <ng-container matColumnDef="date1">
-                    <th mat-header-cell *matHeaderCellDef> Date of Creation </th>
-                    <td mat-cell *matCellDef="let element"> {{element.date1}} </td>
+                    <mat-header-cell *matHeaderCellDef> Date of Creation </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.date1}} </mat-cell>
                </ng-container>
 
                 <!-- Weight Column -->
                <ng-container matColumnDef="duedate">
-                    <th mat-header-cell *matHeaderCellDef> Due Date </th>
-                    <td mat-cell *matCellDef="let element"> {{element.duedate}} </td>
+                    <mat-header-cell *matHeaderCellDef> Due Date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.duedate}} </mat-cell>
                </ng-container>
 
                <!-- Symbol Column -->
                <ng-container matColumnDef="status">
-                    <th mat-header-cell *matHeaderCellDef> Status Of Task </th>
-                    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                    <mat-header-cell *matHeaderCellDef> Status Of Task </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
                </ng-container>
 
                <ng-container matColumnDef="actions">
-                    <th mat-header-cell *matHeaderCellDef></th>
-                    <td mat-cell *matCellDef="let element"> 
+                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-cell *matCellDef="let element"> 
                         <button mat-icon-button><mat-icon>launch</mat-icon></button> <!--(click)="onEdit(element)"-->
                         <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
-                    </td>
+                    </mat-cell>
                </ng-container>
 
-               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+               <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
           </table>
           <mat-paginator [pageSizeOptions]="[5, 7, 10]" showFirstLastButtons></mat-paginator>
           </div>

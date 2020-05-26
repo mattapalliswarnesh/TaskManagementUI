@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HeroService} from '../hero.service';
+import {HeroService} from '../../hero.service';
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',

@@ -36,7 +36,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  displayedColumns: string[] = ['taskname', 'type', 'date1','duedate', 'status'];
+  displayedColumns: string[] = ['taskname', 'type', 'date1','duedate', 'status','actions'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   tasks: tassks[];
   errorMessage: string;
@@ -84,8 +84,8 @@ export class SearchComponent implements OnInit {
 }
 @Component({
   selector: 'app-add-task',
-  templateUrl: '../add-task.component.html',
-  styleUrls: ['./../add-task.component.css']
+  templateUrl: './add-task/add-task.component.html',
+  styleUrls: ['./add-task/add-task.component.css']
 })
-export class DialogContentExampleDialog implements OnInit {}
+export class DialogContentExampleDialog {}
 

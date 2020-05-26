@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddTaskComponent } from './add-task/add-task.component';
+import { AddTaskComponent } from './search/add-task/add-task.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
