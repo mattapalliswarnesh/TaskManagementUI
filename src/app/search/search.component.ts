@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 import { tassks } from './tasks';
 import { HeroService } from '../hero.service';
 
@@ -6,17 +8,25 @@ export interface PeriodicElement {
   taskname: string;
   type: string;
   date1: number;
+  duedate: number;
   status: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {taskname: 'Prashant', type: 'Personal', date1:5/5/2020, status: 'New'},
-  {taskname: 'Swarnesh', type: 'Work', date1:4/5/2020, status: 'In-progress'},
-  {taskname: 'Ravi', type: 'Shopping', date1:1/5/2020, status: 'New'},
-  {taskname: 'Rohith', type: 'Others', date1:5/5/2020, status: 'New'},
-  {taskname: 'Swathi', type: 'Personal', date1:6/5/2020, status: 'Completed'},
-  {taskname: 'Vamsi', type: 'Personal', date1:8/5/2020, status: 'Completed'},
-  {taskname: 'Yuvarj', type: 'Work', date1:9/5/2020, status: 'In-Progress'},
+  {taskname: 'Prashant', type: 'Personal', date1:5/5/2020,duedate: 10/5/2020 ,status: 'New'},
+  {taskname: 'Swarnesh', type: 'Work', date1:4/5/2020,duedate: 10/5/2020, status: 'In-progress'},
+  {taskname: 'Ravi', type: 'Shopping', date1:1/5/2020,duedate: 10/5/2020, status: 'New'},
+  {taskname: 'Rohith', type: 'Others', date1:5/5/2020,duedate: 10/5/2020, status: 'New'},
+  {taskname: 'Swathi', type: 'Personal', date1:6/5/2020,duedate: 10/5/2020, status: 'Completed'},
+  {taskname: 'Vamsi', type: 'Personal', date1:8/5/2020,duedate: 10/5/2020, status: 'Completed'},
+  {taskname: 'Yuvarj', type: 'Work', date1:9/5/2020,duedate: 10/5/2020, status: 'In-Progress'},
+  {taskname: 'Prashant', type: 'Personal', date1:5/5/2020,duedate: 10/5/2020 ,status: 'New'},
+  {taskname: 'Swarnesh', type: 'Work', date1:4/5/2020,duedate: 10/5/2020, status: 'In-progress'},
+  {taskname: 'Ravi', type: 'Shopping', date1:1/5/2020,duedate: 10/5/2020, status: 'New'},
+  {taskname: 'Rohith', type: 'Others', date1:5/5/2020,duedate: 10/5/2020, status: 'New'},
+  {taskname: 'Swathi', type: 'Personal', date1:6/5/2020,duedate: 10/5/2020, status: 'Completed'},
+  {taskname: 'Vamsi', type: 'Personal', date1:8/5/2020,duedate: 10/5/2020, status: 'Completed'},
+  {taskname: 'Yuvarj', type: 'Work', date1:9/5/2020,duedate: 10/5/2020, status: 'In-Progress'},
 ];
 
 @Component({
@@ -25,22 +35,23 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  displayedColumns: string[] = ['taskname', 'type', 'date1', 'status'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['taskname', 'type', 'date1','duedate', 'status'];
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   tasks: tassks[];
   errorMessage: string;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   /*newTask: tassks = { '_id': 11, 'description': 'something' };*/ 
 
   constructor(private heroService: HeroService) { }
 
-  getTask() {
+  /* getTask() {
       this.heroService.getTask().subscribe(
       tasks => this.tasks = tasks,
       error => this.errorMessage = <any>error);
-  }
+  } */
 
-  addTask(id, description) {
+  /* addTask(id, description) {
       this.heroService.addTask({ '_id': id, 'description': description })
       .subscribe(hero => this.tasks.push(hero));
   }
@@ -53,10 +64,11 @@ export class SearchComponent implements OnInit {
   deleteBook(_id: number) {
     this.bookService.deleteTask(_id)
       .subscribe(hero => this.tasks = hero);
-  }
+  } */
 
   ngOnInit(): void {
-    this.getTask();
+    this.dataSource.paginator = this.paginator;
+    /* this.getTask(); */
   }
 
 }

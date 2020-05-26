@@ -5,3 +5,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+form.normal-form{
+    margin: 10px;
+}
+
+controlers-container{
+    width: 100%;
+}
+
+.button-row button{
+    margin: 5px;
+}
