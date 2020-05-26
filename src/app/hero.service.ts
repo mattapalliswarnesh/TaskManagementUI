@@ -4,7 +4,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { tassks } from './search/tasks';
-import {FormGroup,Formcontrol,validations} from '@angular/forms';
+import {FormGroup,FormControl,Validators} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,12 @@ export class HeroService {
   constructor(private http: HttpClient) { }
 
   form: FormGroup = new FormGroup({
-    $key: new Formcontrol(null),
-    taskDescription: new Formcontrol('',Validators.required),
-    taskType: new Formcontrol(''),
-    createddate: new Formcontrol(''),
-    dueDate: new Formcontrol(''),
-    status: new Formcontrol('')
+    $key: new FormControl(null),
+    taskDescription: new FormControl('',Validators.required),
+    taskType: new FormControl(''),
+    createddate: new FormControl(''),
+    dueDate: new FormControl(''),
+    status: new FormControl('')
   });
 
     /* getTask(): Observable<tassks[]> {

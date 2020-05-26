@@ -7,7 +7,7 @@ import {HeroService} from '../hero.service';
 })
 export class AddTaskComponent implements OnInit {
 
-  constructor(private service: HeroService) { }
+  constructor(public service: HeroService) { }
 
   ngOnInit(): void {
   }

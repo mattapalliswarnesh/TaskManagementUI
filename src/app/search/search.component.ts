@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { tassks } from './tasks';
 import { HeroService } from '../hero.service';
+import {MatDialog} from '@angular/material/dialog';
 
 export interface PeriodicElement {
   taskname: string;
@@ -43,7 +44,16 @@ export class SearchComponent implements OnInit {
 
   /*newTask: tassks = { '_id': 11, 'description': 'something' };*/ 
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService,public dialog: MatDialog) { }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 
   /* getTask() {
       this.heroService.getTask().subscribe(
@@ -72,4 +82,10 @@ export class SearchComponent implements OnInit {
   }
 
 }
+@Component({
+  selector: 'app-add-task',
+  templateUrl: '../add-task.component.html',
+  styleUrls: ['./../add-task.component.css']
+})
+export class DialogContentExampleDialog implements OnInit {}
 
